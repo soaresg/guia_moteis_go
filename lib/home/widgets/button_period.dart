@@ -1,4 +1,6 @@
+import 'package:animated_toggle_switch/animated_toggle_switch.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:guia_moteis/shared/screen_utils.dart';
 
 class ButtonPeriod extends StatefulWidget {
@@ -9,99 +11,54 @@ class ButtonPeriod extends StatefulWidget {
 }
 
 class _ButtonPeriodState extends State<ButtonPeriod> {
-  bool period = false;
+  bool period = true;
 
   @override
   Widget build(BuildContext context) {
     ScreenUtil.init(context);
 
-    final corBotaoSelecionado = period ? Colors.red : Colors.transparent;
-    final corFontBotaoSelecionado = period ? Colors.transparent : Colors.red;
-
-    final corBotaoOff = period ? Colors.blue : Colors.amber;
-    final corFontBotaoOff = period ? Colors.white : Colors.orange;
-
-    return Material(
-      elevation: 3,
-      borderRadius: const BorderRadius.only(
-        topLeft: Radius.circular(2),
-        topRight: Radius.circular(2),
-      ),
-      child: Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.only(
-            topLeft: ScreenUtil.getRadiusBotoes(2),
-            topRight: ScreenUtil.getRadiusBotoes(2),
-          ),
-          color: const Color.fromARGB(255, 226, 226, 226),
+    return SizedBox(
+      height: ScreenUtil.blockSizeVertical * 5,
+      child: AnimatedToggleSwitch<bool>.size(
+        indicatorSize: Size.fromWidth(ScreenUtil.screenWidth * 0.35),
+        current: period,
+        values: const [true, false],
+        style: const ToggleStyle(
+          backgroundColor: Color.fromRGBO(202, 0, 0, 1),
+          indicatorColor: Colors.white,
+          borderColor: Colors.transparent,
         ),
-        width: ScreenUtil.blockSizeHorizontal * 85,
-        height: ScreenUtil.blockSizeVertical * 5,
-        child: Row(
-          children: [
-            Expanded(
-              child: GestureDetector(
-                onTap: () {
-                  setState(() {
-                    period != period;
-                  });
-                },
-                child: AnimatedContainer(
-                  duration: const Duration(milliseconds: 300),
-                  alignment: Alignment.center,
-                  decoration: BoxDecoration(
-                    color: corBotaoSelecionado,
-                    borderRadius: BorderRadius.only(
-                      topLeft: ScreenUtil.getRadiusBotoes(2),
-                      topRight: ScreenUtil.getRadiusBotoes(2),
-                    ),
-                  ),
-                  child: Text(
-                    "Teste",
-                    style: TextStyle(
-                      color: corFontBotaoSelecionado,
-                      fontSize: ScreenUtil.wideScreen
-                          ? ScreenUtil.getFontMedia(10)
-                          : ScreenUtil.getFontPequena(12),
-                      fontWeight: FontWeight.bold,
-                      fontFamily: 'Urbanist',
-                    ),
-                  ),
+        onChanged: (i) => setState(() => period = i),
+        spacing: 20,
+        customIconBuilder: (context, local, global) {
+          final text = const ['ir agora', 'ir outra hora'][local.index];
+          final icon = const [
+            FontAwesomeIcons.boltLightning,
+            FontAwesomeIcons.calendarCheck
+          ][local.index];
+          return Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(right: 8.0),
+                child: Icon(
+                  icon,
+                  size: 10,
+                  color: Color.lerp(
+                      Colors.white, Colors.black, local.animationValue),
                 ),
               ),
-            ),
-            Visibility(
-              visible: true,
-              child: Expanded(
-                child: GestureDetector(
-                  onTap: () {},
-                  child: AnimatedContainer(
-                    duration: const Duration(milliseconds: 300),
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                      color: corBotaoOff,
-                      borderRadius: BorderRadius.only(
-                        topLeft: ScreenUtil.getRadiusBotoes(2),
-                        topRight: ScreenUtil.getRadiusBotoes(2),
-                      ),
-                    ),
-                    child: Text(
-                      "Teste2",
-                      style: TextStyle(
-                        color: corFontBotaoOff,
-                        fontSize: ScreenUtil.wideScreen
-                            ? ScreenUtil.getFontMedia(10)
-                            : ScreenUtil.getFontPequena(12),
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'Urbanist',
-                      ),
-                    ),
-                  ),
+              Text(
+                text,
+                style: TextStyle(
+                  color: Color.lerp(
+                      Colors.white, Colors.black, local.animationValue),
+                  fontSize: 10,
                 ),
               ),
-            ),
-          ],
-        ),
+            ],
+          );
+        },
       ),
     );
   }

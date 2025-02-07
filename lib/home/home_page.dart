@@ -23,13 +23,7 @@ class _HomePageState extends State<HomePage> {
             color: Colors.white,
           ),
         ),
-        title: Center(
-          child: Stack(
-            children: [
-              ButtonPeriod(),
-            ],
-          ),
-        ),
+        title: Center(child: ButtonPeriod()),
         actions: [
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 8),
