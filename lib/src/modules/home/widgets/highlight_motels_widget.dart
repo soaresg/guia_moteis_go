@@ -23,6 +23,23 @@ class HighlightMotel extends StatelessWidget {
           ),
           height: ScreenUtil.screenHeight * 0.23,
           width: ScreenUtil.screenWidth * 0.912,
+          child: Row(
+            children: [
+              Container(
+                padding: EdgeInsets.symmetric(
+                  horizontal: ScreenUtil.blockSizeHorizontal * 2,
+                  vertical: ScreenUtil.blockSizeVertical * 1,
+                ),
+                width: ScreenUtil.screenWidth * 0.4,
+                height: ScreenUtil.screenHeight,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.all(ScreenUtil.getRadiusBotoes(2)),
+                  child: Image.network(motelList.suites[0].fotos[0],
+                      fit: BoxFit.fill),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );
