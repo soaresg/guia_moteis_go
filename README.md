@@ -13,3 +13,5 @@ Packages utilizados:
 [Http](https://pub.dev/packages/http)
 
 [Provider](https://pub.dev/packages/provider)
+
+[Carousel Slider](https://pub.dev/packages/carousel_slider)
