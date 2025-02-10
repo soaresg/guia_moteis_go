@@ -1,24 +1,11 @@
-import 'package:flutter/material.dart';
+import 'dart:io';
 
-import 'package:guia_moteis/home/home_page.dart';
+import 'package:flutter/material.dart';
+import 'package:guia_moteis/src/core/app.dart';
+import 'package:guia_moteis/src/core/my_http_overrides.dart';
 
 void main() {
-  runApp(const MyApp());
-}
+  HttpOverrides.global = MyHttpOverrides();
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  // This widget is the root of your application.
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Guia de Moteis GO',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const HomePage(),
-    );
-  }
+  runApp(const App());
 }
