@@ -14,21 +14,27 @@ class SearchLocation extends StatelessWidget {
       decoration: BoxDecoration(
         color: primaryColor,
       ),
-      child: const Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            "minha localização",
-            style: TextStyle(
+      child: GestureDetector(
+        onTap: () => debugPrint('Pressionou em localização'),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: EdgeInsets.only(right: ScreenUtil.blockSizeHorizontal),
+              child: const Text(
+                "minha localização",
+                style: TextStyle(
+                  color: Colors.white,
+                ),
+              ),
+            ),
+            const Icon(
+              Icons.keyboard_arrow_down,
               color: Colors.white,
             ),
-          ),
-          Icon(
-            Icons.keyboard_arrow_down,
-            color: Colors.white,
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

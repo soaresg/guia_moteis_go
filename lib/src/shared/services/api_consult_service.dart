@@ -10,10 +10,12 @@ class ApiConsult implements IApiConsult {
     try {
       final response = await http.get(
         Uri.parse(url),
+        headers: {'Content-Type': 'application/json;charset=UTF-8'},
       );
 
       if (response.statusCode == 200) {
-        final dynamic returnMoteis = jsonDecode(response.body);
+        final dynamic returnMoteis =
+            jsonDecode(utf8.decode(response.bodyBytes));
         List<MotelEntity> moteis = [];
 
         if (returnMoteis['sucesso']) {

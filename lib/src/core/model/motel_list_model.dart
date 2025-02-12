@@ -20,6 +20,8 @@ class MotelList extends ChangeNotifier {
     IApiConsult apiConsult = ApiConsult();
 
     try {
+      itens.clear();
+
       itens.addAll(await apiConsult.buscaMoteis(url));
     } catch (e) {
       throw Exception('Error getting data from the API');

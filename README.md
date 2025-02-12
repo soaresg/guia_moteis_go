@@ -15,3 +15,5 @@ Packages utilizados:
 [Provider](https://pub.dev/packages/provider)
 
 [Carousel Slider](https://pub.dev/packages/carousel_slider)
+
+[Smooth Page Indicator](https://pub.dev/packages/smooth_page_indicator)

@@ -4,7 +4,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:guia_moteis/src/shared/screen_utils.dart';
 
 class ButtonPeriod extends StatefulWidget {
-  ButtonPeriod({super.key});
+  const ButtonPeriod({super.key});
 
   @override
   State<ButtonPeriod> createState() => _ButtonPeriodState();
