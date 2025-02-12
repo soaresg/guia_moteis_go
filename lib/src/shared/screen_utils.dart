@@ -5,14 +5,12 @@ class ScreenUtil {
   static double screenHeight = 0.0;
   static double blockSizeHorizontal = 0.0;
   static double blockSizeVertical = 0.0;
-  static bool wideScreen = false;
 
   static void init(BuildContext context) {
     screenWidth = MediaQuery.of(context).size.width;
     screenHeight = MediaQuery.of(context).size.height;
     blockSizeHorizontal = screenWidth / 100;
     blockSizeVertical = screenHeight / 100;
-    wideScreen = (screenWidth / screenHeight) > 1;
   }
 
   static double getFontPequena(double fontSize) {

@@ -1,16 +1,19 @@
-# guia_moteis
+# Guia Moteis GO
 
-A new Flutter project.
+## Projeto de teste
 
-## Getting Started
+Esta aplicação tem como objetivo avaliar as habilidades em Flutter, Dart, gerenciamento de estado, consumo de API e testes unitários. 
 
-This project is a starting point for a Flutter application.
+Packages utilizados:
 
-A few resources to get you started if this is your first Flutter project:
+[Animated Toggle Switch](https://pub.dev/packages/animated_toggle_switch)
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+[Font Awesome Flutter](https://pub.dev/packages/font_awesome_flutter)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+[Http](https://pub.dev/packages/http)
+
+[Provider](https://pub.dev/packages/provider)
+
+[Carousel Slider](https://pub.dev/packages/carousel_slider)
+
+[Smooth Page Indicator](https://pub.dev/packages/smooth_page_indicator)
