@@ -21,3 +21,7 @@ Packages utilizados:
 [Flutter Launcher Icons](https://pub.dev/packages/flutter_launcher_icons)
 
 [Flutter Native Splash](https://pub.dev/packages/flutter_native_splash)
+
+### Video de exemplo
+
+O vídeo de exemplo se encontra dentro da pasta "assets/example/"
