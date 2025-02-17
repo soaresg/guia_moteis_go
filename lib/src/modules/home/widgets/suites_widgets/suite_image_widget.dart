@@ -18,7 +18,7 @@ class SuiteImage extends StatelessWidget {
           horizontal: ScreenUtil.blockSizeHorizontal * 2,
           vertical: ScreenUtil.blockSizeVertical,
         ),
-        height: ScreenUtil.screenHeight * 0.35,
+        height: ScreenUtil.screenHeight * 0.38,
         width: ScreenUtil.screenWidth * 0.8,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.all(ScreenUtil.getRadiusBotoes(1)),

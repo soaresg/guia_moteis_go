@@ -17,48 +17,50 @@ class _ButtonPeriodState extends State<ButtonPeriod> {
   Widget build(BuildContext context) {
     ScreenUtil.init(context);
 
-    return SizedBox(
-      height: ScreenUtil.blockSizeVertical * 5,
-      child: AnimatedToggleSwitch<bool>.size(
-        indicatorSize: Size.fromWidth(ScreenUtil.screenWidth * 0.35),
-        current: period,
-        values: const [true, false],
-        style: const ToggleStyle(
-          backgroundColor: Color.fromRGBO(202, 0, 0, 1),
-          indicatorColor: Colors.white,
-          borderColor: Colors.transparent,
+    return Center(
+      child: SizedBox(
+        height: ScreenUtil.blockSizeVertical * 5,
+        child: AnimatedToggleSwitch<bool>.size(
+          indicatorSize: Size.fromWidth(ScreenUtil.screenWidth * 0.35),
+          current: period,
+          values: const [true, false],
+          style: const ToggleStyle(
+            backgroundColor: Color.fromRGBO(202, 0, 0, 1),
+            indicatorColor: Colors.white,
+            borderColor: Colors.transparent,
+          ),
+          onChanged: (i) => setState(() => period = i),
+          spacing: 20,
+          customIconBuilder: (context, local, global) {
+            final text = const ['ir agora', 'ir outra hora'][local.index];
+            final icon = const [
+              FontAwesomeIcons.boltLightning,
+              FontAwesomeIcons.calendarCheck
+            ][local.index];
+            return Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(right: 8.0),
+                  child: Icon(
+                    icon,
+                    size: 10,
+                    color: Color.lerp(
+                        Colors.white, Colors.black, local.animationValue),
+                  ),
+                ),
+                Text(
+                  text,
+                  style: TextStyle(
+                    color: Color.lerp(
+                        Colors.white, Colors.black, local.animationValue),
+                    fontSize: 10,
+                  ),
+                ),
+              ],
+            );
+          },
         ),
-        onChanged: (i) => setState(() => period = i),
-        spacing: 20,
-        customIconBuilder: (context, local, global) {
-          final text = const ['ir agora', 'ir outra hora'][local.index];
-          final icon = const [
-            FontAwesomeIcons.boltLightning,
-            FontAwesomeIcons.calendarCheck
-          ][local.index];
-          return Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(right: 8.0),
-                child: Icon(
-                  icon,
-                  size: 10,
-                  color: Color.lerp(
-                      Colors.white, Colors.black, local.animationValue),
-                ),
-              ),
-              Text(
-                text,
-                style: TextStyle(
-                  color: Color.lerp(
-                      Colors.white, Colors.black, local.animationValue),
-                  fontSize: 10,
-                ),
-              ),
-            ],
-          );
-        },
       ),
     );
   }

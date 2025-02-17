@@ -25,12 +25,15 @@ class ApiConsult implements IApiConsult {
 
           return moteis;
         } else {
+          print('Erro ao obter dados da API: ${response.body}');
           throw Exception('Erro ao obter dados da API.');
         }
       } else {
+        print('Erro getting data from API: ${response.body}');
         throw Exception('Error getting data from API: ${response.body}');
       }
     } catch (e) {
+      print('Erro ao obter dados da API: $e');
       throw Exception('Error fetching data from API: $e');
     }
   }

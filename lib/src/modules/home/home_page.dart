@@ -11,7 +11,7 @@ import 'package:guia_moteis/src/shared/widgets/custom_app_bar.dart';
 import 'package:provider/provider.dart';
 
 class HomePage extends StatelessWidget {
-  HomePage({super.key});
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +36,13 @@ class HomePage extends StatelessWidget {
                         children: [
                           const HighlightCarouselWidget(),
                           Container(
-                            height: ScreenUtil.screenHeight * 0.5,
+                            padding: EdgeInsets.symmetric(
+                                horizontal: ScreenUtil.blockSizeHorizontal * 2),
+                            color: Colors.grey.shade100,
+                            child: FilterListWidget(),
+                          ),
+                          Container(
+                            height: ScreenUtil.screenHeight * 0.6,
                             width: ScreenUtil.screenWidth,
                             color: Colors.grey.shade100,
                             padding: EdgeInsets.symmetric(
@@ -49,7 +55,6 @@ class HomePage extends StatelessWidget {
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  FilterListWidget(),
                                   Padding(
                                     padding: EdgeInsets.symmetric(
                                         vertical:
@@ -64,7 +69,7 @@ class HomePage extends StatelessWidget {
                                     children: Provider.of<MotelList>(context)
                                         .itens
                                         .map<Widget>(
-                                          (e) => Container(
+                                          (e) => SizedBox(
                                               height:
                                                   ScreenUtil.screenHeight * 0.8,
                                               child: MotelCardWidget(motel: e)),

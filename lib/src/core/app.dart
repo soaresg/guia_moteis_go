@@ -15,7 +15,7 @@ class App extends StatelessWidget {
         ChangeNotifierProvider(create: (context) => MotelList()),
         ChangeNotifierProvider(create: (context) => CurrentCarrouselIndex()),
       ],
-      child: MaterialApp(
+      child: const MaterialApp(
         title: 'Guia de Moteis GO',
         home: HomePage(),
       ),
