@@ -42,12 +42,13 @@ class HomePage extends StatelessWidget {
                             child: FilterListWidget(),
                           ),
                           Container(
-                            height: ScreenUtil.screenHeight * 0.6,
+                            height: ScreenUtil.screenHeight * 0.55,
                             width: ScreenUtil.screenWidth,
                             color: Colors.grey.shade100,
-                            padding: EdgeInsets.symmetric(
-                              horizontal: ScreenUtil.blockSizeHorizontal * 2,
-                              vertical: ScreenUtil.blockSizeVertical,
+                            padding: EdgeInsets.only(
+                              right: ScreenUtil.blockSizeHorizontal * 2,
+                              left: ScreenUtil.blockSizeHorizontal * 2,
+                              bottom: ScreenUtil.blockSizeVertical * 5,
                             ),
                             child: SingleChildScrollView(
                               scrollDirection: Axis.vertical,
@@ -83,14 +84,22 @@ class HomePage extends StatelessWidget {
                         ],
                       ),
                     ),
+                    Align(
+                      alignment: Alignment.bottomCenter,
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: ScreenUtil.blockSizeHorizontal,
+                          vertical: ScreenUtil.blockSizeVertical * 2,
+                        ),
+                        child: const MapaButton(),
+                      ),
+                    ),
                   ],
                 );
               default:
                 return Container();
             }
           }),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton: const MapaButton(),
     );
   }
 }
