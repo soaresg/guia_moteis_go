@@ -11,7 +11,7 @@ import 'package:guia_moteis/src/shared/widgets/custom_app_bar.dart';
 import 'package:provider/provider.dart';
 
 class HomePage extends StatelessWidget {
-  HomePage({super.key});
+  const HomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -36,12 +36,19 @@ class HomePage extends StatelessWidget {
                         children: [
                           const HighlightCarouselWidget(),
                           Container(
-                            height: ScreenUtil.screenHeight * 0.5,
+                            padding: EdgeInsets.symmetric(
+                                horizontal: ScreenUtil.blockSizeHorizontal * 2),
+                            color: Colors.grey.shade100,
+                            child: FilterListWidget(),
+                          ),
+                          Container(
+                            height: ScreenUtil.screenHeight * 0.55,
                             width: ScreenUtil.screenWidth,
                             color: Colors.grey.shade100,
-                            padding: EdgeInsets.symmetric(
-                              horizontal: ScreenUtil.blockSizeHorizontal * 2,
-                              vertical: ScreenUtil.blockSizeVertical,
+                            padding: EdgeInsets.only(
+                              right: ScreenUtil.blockSizeHorizontal * 2,
+                              left: ScreenUtil.blockSizeHorizontal * 2,
+                              bottom: ScreenUtil.blockSizeVertical * 5,
                             ),
                             child: SingleChildScrollView(
                               scrollDirection: Axis.vertical,
@@ -49,7 +56,6 @@ class HomePage extends StatelessWidget {
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  FilterListWidget(),
                                   Padding(
                                     padding: EdgeInsets.symmetric(
                                         vertical:
@@ -64,7 +70,7 @@ class HomePage extends StatelessWidget {
                                     children: Provider.of<MotelList>(context)
                                         .itens
                                         .map<Widget>(
-                                          (e) => Container(
+                                          (e) => SizedBox(
                                               height:
                                                   ScreenUtil.screenHeight * 0.8,
                                               child: MotelCardWidget(motel: e)),
@@ -78,14 +84,22 @@ class HomePage extends StatelessWidget {
                         ],
                       ),
                     ),
+                    Align(
+                      alignment: Alignment.bottomCenter,
+                      child: Padding(
+                        padding: EdgeInsets.symmetric(
+                          horizontal: ScreenUtil.blockSizeHorizontal,
+                          vertical: ScreenUtil.blockSizeVertical * 2,
+                        ),
+                        child: const MapaButton(),
+                      ),
+                    ),
                   ],
                 );
               default:
                 return Container();
             }
           }),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
-      floatingActionButton: const MapaButton(),
     );
   }
 }

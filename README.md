@@ -2,7 +2,7 @@
 
 ## Projeto de teste
 
-Esta aplicação tem como objetivo avaliar as habilidades em Flutter, Dart, gerenciamento de estado, consumo de API e testes unitários. 
+Esta aplicação tem como objetivo avaliar as habilidades em Flutter, Dart, gerenciamento de estado, consumo de API e testes unitários.
 
 Packages utilizados:
 
@@ -17,3 +17,7 @@ Packages utilizados:
 [Carousel Slider](https://pub.dev/packages/carousel_slider)
 
 [Smooth Page Indicator](https://pub.dev/packages/smooth_page_indicator)
+
+[Flutter Launcher Icons](https://pub.dev/packages/flutter_launcher_icons)
+
+[Flutter Native Splash](https://pub.dev/packages/flutter_native_splash)

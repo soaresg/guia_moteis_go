@@ -8,15 +8,12 @@ class MapaButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 50,
+    return SizedBox(
       width: ScreenUtil.screenWidth * 0.3,
-      margin: EdgeInsets.symmetric(
-        horizontal: ScreenUtil.blockSizeHorizontal,
-        vertical: ScreenUtil.blockSizeVertical,
-      ),
-      child: ElevatedButton(
-        onPressed: () => debugPrint('Pressionou no mapa'),
+      child: FloatingActionButton(
+        isExtended: true,
+        backgroundColor: Colors.white,
+        onPressed: () {},
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
