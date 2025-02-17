@@ -36,7 +36,7 @@ class MotelCardHeader extends StatelessWidget {
                 fontSize: 24,
               ),
             ),
-            Text('${motel.distancia}km - ${motel.bairro}'),
+            Text('${motel.distancia.toStringAsFixed(0)}km - ${motel.bairro}'),
             Padding(
               padding:
                   EdgeInsets.symmetric(vertical: ScreenUtil.blockSizeVertical),
